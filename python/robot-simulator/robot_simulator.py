@@ -29,24 +29,16 @@ class Robot():
 
 	def advance(self):
 		if self.bearing == NORTH:
-			lst = list(self.coordinates)
-			lst[1] += 1
-			self.coordinates = tuple(lst)
+			self.coordinates = (self.coordinates[0],self.coordinates[1] + 1)
 		elif self.bearing == EAST:
-			lst = list(self.coordinates)
-			lst[0] += 1
-			self.coordinates = tuple(lst)
+			self.coordinates = (self.coordinates[0] + 1,self.coordinates[1])
 		elif self.bearing == SOUTH:
-			lst = list(self.coordinates)
-			lst[1] -= 1
-			self.coordinates = tuple(lst)
+			self.coordinates = (self.coordinates[0],self.coordinates[1] - 1)
 		elif self.bearing == WEST:
-			lst = list(self.coordinates)
-			lst[0] -= 1
-			self.coordinates = tuple(lst)
+			self.coordinates = (self.coordinates[0] - 1,self.coordinates[1])
 
 	def simulate(self, commands):
-		for cmd in list(commands):
+		for cmd in commands:
 			if cmd == "A":
 				self.advance()
 			elif cmd == "R":
