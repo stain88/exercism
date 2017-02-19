@@ -1,8 +1,7 @@
 "use strict";
-var $__0,
-    $__2,
-    $__4;
-$traceurRuntime.options.symbols = true;
+var $__1,
+    $__3,
+    $__5;
 function getInputDirectory(argv) {
   if (argv.input) {
     return argv.input;
@@ -25,12 +24,12 @@ var gulp = require('gulp'),
 gulp.task('default', ['test']);
 gulp.task('test', ['traceur', 'copy-runtime'], $traceurRuntime.initTailRecursiveFunction(function() {
   return $traceurRuntime.call(function() {
-    return ($__0 = gulp.src([outputDir + '/*_test.spec.js']), $traceurRuntime.continuation($__0.pipe, $__0, [jasmine()]));
+    return ($__1 = gulp.src([outputDir + '/*_test.spec.js']), $traceurRuntime.continuation($__1.pipe, $__1, [jasmine()]));
   }, this, arguments);
 }));
 gulp.task('traceur', $traceurRuntime.initTailRecursiveFunction(function() {
   return $traceurRuntime.call(function() {
-    return ($__2 = gulp.src([inputDir + '/*.js']).pipe(traceur({
+    return ($__3 = gulp.src([inputDir + '/*.js']).pipe(traceur({
       modules: 'commonjs',
       properTailCalls: true,
       symbols: true,
@@ -45,12 +44,12 @@ gulp.task('traceur', $traceurRuntime.initTailRecursiveFunction(function() {
       memberVariables: true,
       require: true,
       types: true
-    })), $traceurRuntime.continuation($__2.pipe, $__2, [gulp.dest(outputDir)]));
+    })), $traceurRuntime.continuation($__3.pipe, $__3, [gulp.dest(outputDir)]));
   }, this, arguments);
 }));
 gulp.task('copy-runtime', $traceurRuntime.initTailRecursiveFunction(function() {
   return $traceurRuntime.call(function() {
-    return ($__4 = gulp.src(traceur.RUNTIME_PATH), $traceurRuntime.continuation($__4.pipe, $__4, [gulp.dest(outputDir)]));
+    return ($__5 = gulp.src(traceur.RUNTIME_PATH), $traceurRuntime.continuation($__5.pipe, $__5, [gulp.dest(outputDir)]));
   }, this, arguments);
 }));
 gulp.task('clean', function(cb) {

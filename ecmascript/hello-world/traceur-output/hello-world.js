@@ -1,22 +1,20 @@
 "use strict";
-$traceurRuntime.options.symbols = true;
+Object.defineProperties(module.exports, {
+  __esModule: {value: true},
+  default: {
+    enumerable: true,
+    get: function() {
+      return $__default;
+    }
+  }
+});
 var HelloWorld = $traceurRuntime.initTailRecursiveFunction(function() {
   return $traceurRuntime.call(function() {
     function HelloWorld() {}
     return $traceurRuntime.continuation($traceurRuntime.createClass, $traceurRuntime, [HelloWorld, {hello: function(name) {
-        if (name) {
-          return "Hello, " + name + "!";
-        } else {
-          return "Hello, World!";
-        }
-        ;
+        name = name || "World";
+        return ("Hello, " + name + "!");
       }}, {}]);
   }, this, arguments);
 })();
 var $__default = HelloWorld;
-Object.defineProperties(module.exports, {
-  default: {get: function() {
-      return $__default;
-    }},
-  __esModule: {value: true}
-});
